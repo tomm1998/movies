@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`Card > renders 1`] = `
+<div>
+  <div
+    label="label"
+    role="button"
+    style="margin: 1rem; padding: 0.5rem; min-width: 80px; border-radius: 4px; display: inline-block; text-align: center; text-transform: uppercase; font-weight: bold; background: rgb(205, 205, 205);"
+  >
+    label
+  </div>
+</div>
+`;

@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`Card > renders 1`] = `
+<div>
+  <div
+    style="padding: 16px; border-radius: 8px; width: 100%; box-shadow: -60px 0px 100px -90px #000000, 60px 0px 100px -90px #000000;"
+  >
+    <div>
+      child
+    </div>
+  </div>
+</div>
+`;

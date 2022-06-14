@@ -7,7 +7,7 @@ export const MovieFetcher = ({
   children,
   query = "",
 }) => {
-  const [movies, setMovie] = React.useState();
+  const [movies, setMovie] = React.useState([]);
 
   // on mount
   React.useEffect(() => {

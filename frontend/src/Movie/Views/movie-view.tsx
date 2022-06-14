@@ -9,11 +9,12 @@ import Divider from "@mui/material/Divider";
 import { AcUnitSharp, Add, Star, StarBorder } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import { MovieDetails } from "../../components/MovieDetails";
-import { Fab } from "@mui/material";
+import { Checkbox, Fab, FormControlLabel } from "@mui/material";
 import { Context } from "../../hooks/SearchBarContext";
 import { Filter } from "../../components/Filter";
 import { filterByDate } from "../../utils/filterByDate";
 import { withFavorite } from "../../utils/withFavorite";
+
 
 export const MovieView = () => {
   const navigate = useNavigate();
@@ -24,7 +25,6 @@ export const MovieView = () => {
     to: undefined,
   });
   return (
-    <>
       <Context.Consumer>
         {({ query }) => (
           <div
@@ -41,7 +41,8 @@ export const MovieView = () => {
                 if (
                   (!moviesAndFavorites.length && moviesWithFavorites.length) ||
                   query != queryRef.current
-                ) {
+                ) 
+                {
                   setMovies(moviesWithFavorites);
                   queryRef.current = query;
                 }
@@ -57,9 +58,10 @@ export const MovieView = () => {
                         moviesAndFavorites,
                         dateFilter.from,
                         dateFilter.to
-                      ).map((movie) => {
+                      ).map((movie, i) => {
                         return (
                           <div
+                            key={i}
                             onClick={() => {
                               navigate(
                                 "/movie/" + movie.movieName.split(" ").join("_")
@@ -77,13 +79,12 @@ export const MovieView = () => {
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   movie.favorite = !movie.favorite;
-                                  console.log(moviesAndFavorites);
                                   setMovies([
                                     ...moviesAndFavorites.filter(
                                       (m) => m.title == movie.title
-                                    ),
-                                    movie,
+                                    )
                                   ]);
+                                  console.log(moviesAndFavorites);
                                 }}
                               >
                                 {movie.favorite ? <Star /> : <StarBorder />}
@@ -112,6 +113,5 @@ export const MovieView = () => {
           </div>
         )}
       </Context.Consumer>
-    </>
   );
 };

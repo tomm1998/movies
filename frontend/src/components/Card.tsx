@@ -1,6 +1,6 @@
 import React from "react";
-
-export const Card = ({
+import  PropTypes  from "prop-types";
+const Card = ({
   header,
   children,
   actionLabel,
@@ -34,3 +34,12 @@ export const Card = ({
     </div>
   );
 };
+Card.propTypes = {
+  header: PropTypes.any,
+  children: PropTypes.any,
+  actionLabel: PropTypes.string,
+  handleAction: PropTypes.func,
+  image: PropTypes.any,
+  imagePosition: PropTypes.string
+};
+export default Card;

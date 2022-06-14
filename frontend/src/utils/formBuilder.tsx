@@ -1,6 +1,6 @@
 import React from "react";
 import { TextField } from "@mui/material";
-type FormBuilderConfigType = "text" | "date";
+type FormBuilderConfigType = "text" | "date" | "select";
 
 type FormBuilderConfig = {
   type: FormBuilderConfigType;
@@ -12,7 +12,7 @@ type FormBuilderConfig = {
 
 export const formBuilder = (config: FormBuilderConfig[]) => {
   const form = [];
-  for (let val in config) {
+  for (const val in config) {
     if (config[val].type === "text") {
       form.push(
         React.cloneElement(
@@ -24,10 +24,17 @@ export const formBuilder = (config: FormBuilderConfig[]) => {
     if (config[val].type === "date") {
       form.push(
         React.cloneElement(
-          <TextField fullWidth style={{ marginBottom: "1rem" }} type="date" />,
+          <TextField fullWidth style={{ marginBottom: "1rem"}} type="date"/>,
           config[val]
         )
       );
+    }
+    if (config[val].type === "select") {
+      form.push(
+        React.cloneElement(
+          <TextField fullWidth style={{ marginBottom: "1rem"}} type="select" />,
+          config[val]
+        )      );
     }
   }
 

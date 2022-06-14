@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router";
 import { MovieFetcher } from "../renderProps/MovieFetcher";
@@ -12,10 +11,10 @@ export interface Movie {
   movieName: string;
   actors: Actor[];
   releaseDate: string;
+  category: string;
 }
 export const MovieDetails = () => {
   const params = useParams();
-  console.log(params);
   const DetailsComponent: React.FC<{ movie: Movie }> = ({ movie }) => {
     if (!movie) return null;
     return (
@@ -45,6 +44,14 @@ export const MovieDetails = () => {
               }}
             >
               {movie.releaseDate}
+
+            </div>
+            <div
+              style={{
+                fontSize: "2rem",
+              }}
+            >
+              {movie.category}
             </div>
           </div>
         </div>

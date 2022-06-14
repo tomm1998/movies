@@ -1,3 +1,4 @@
+import { TimeToLeave } from "@mui/icons-material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { linkStyles } from "../utils/linkStyles";
@@ -24,6 +25,7 @@ export const Navbar: React.FC<MovieAppNavbarConfig> = ({ items }) => {
   const renderTitle = (title: TitleItem) => {
     return (
       <Link
+        key={title.title}
         style={{
           ...linkStyles,
           color: "#fff",
@@ -40,6 +42,7 @@ export const Navbar: React.FC<MovieAppNavbarConfig> = ({ items }) => {
   const renderLink = (item: LinkItem) => {
     return (
       <Link
+        key={item.label}
         style={{
           ...linkStyles,
           color: "#fff",
@@ -55,7 +58,7 @@ export const Navbar: React.FC<MovieAppNavbarConfig> = ({ items }) => {
 
   const renderSearchItem = (item: SearchItem) => {
     return (
-      <div style={{ color: "white" }} onClick={item.onClick}>
+      <div key={item.icon} style={{ color: "white" }} onClick={item.onClick}>
         {item.icon}
       </div>
     );

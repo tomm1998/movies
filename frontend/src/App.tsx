@@ -51,7 +51,7 @@ export function App() {
               <Navbar
                 items={[
                   { title: "Movies" },
-                  { to: "/movies", label: "MOVIES" },
+                  { to: "/movie", label: "MOVIES" },
                   {
                     icon: <Search />,
                     onClick: () =>

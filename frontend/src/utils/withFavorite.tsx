@@ -1,7 +1,7 @@
 import { Movie } from "../mocks/data/movie";
 
-type MoveWithFavorite = Movie & { favorite: boolean };
-export const withFavorite = (items: Movie[]): MoveWithFavorite[] => {
+type MovieWithFavorite = Movie & { favorite: boolean };
+export const withFavorite = (items: Movie[]): MovieWithFavorite[] => {
   if (!items) {
     return [];
   }
